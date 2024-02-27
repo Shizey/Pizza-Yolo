@@ -7,3 +7,7 @@ Un site pour le projet du CNAM
 ```php
 php -S localhost:8000
 ```
+
+## Exemple
+
+Salut, c'est un exemple.
