@@ -1,0 +1,2 @@
+INSERT INTO `livreur` (`Id_Livreur`, `nom`, `prenom`, `Telephone`, `disponible`, `password`) VALUES (1, 'Boudahia', 'Yanis', '0000000000', 1, 'b6d4a89ccde3fb8fc69865ac105801287867cf735adf0b8bbca86ee9186f7b64'); --yanis
+INSERT INTO `livreur` (`Id_Livreur`, `nom`, `prenom`, `Telephone`, `disponible`, `password`) VALUES (2, 'Sumbul', 'Mohamed', '0000000000', 1, '575e500ddb529cc2e5b14dd6e7feb389a8b6e0d7c2b162b6bf31831c64d23592'); --mohamed

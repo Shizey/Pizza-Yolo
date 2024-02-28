@@ -1,0 +1,2 @@
+INSERT INTO `employe` (`idres`, `nom`, `prenom`, `tel`, `password`, `role`) VALUES (1, 'Gorgonzola', 'Francesco', '0000000000', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'gerant'); --admin
+INSERT INTO `employe` (`idres`, `nom`, `prenom`, `tel`, `password`, `role`) VALUES (2, 'Pere', 'Tom', '0000000000', '11c27ae42d9214f220eb0918855cbfcde8767d43d0db9efcfc21f018770d2fd6', 'cuisinier'); --employe

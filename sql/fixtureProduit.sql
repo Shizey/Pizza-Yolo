@@ -1,0 +1,6 @@
+INSERT INTO `produit` (`idproduit`, `nom`, `isactive`, `taille`, `nbingbase`, `NbIngOpt`, `prixuht`, `image`, `nboptmax`, `datearchiv`) VALUES (1, 'Marguerita', 1, 0, 3, 2, 10.00, 'https://www.google.com', 3, NULL);
+INSERT INTO `produit` (`idproduit`, `nom`, `isactive`, `taille`, `nbingbase`, `NbIngOpt`, `prixuht`, `image`, `nboptmax`, `datearchiv`) VALUES (2, 'Reine', 1, 0, 3, 2, 10.00, 'https://www.google.com', 3, NULL);
+INSERT INTO `produit` (`idproduit`, `nom`, `isactive`, `taille`, `nbingbase`, `NbIngOpt`, `prixuht`, `image`, `nboptmax`, `datearchiv`) VALUES (3, 'Napolitaine', 1, 0, 3, 2, 10.00, 'https://www.google.com', 3, NULL);
+INSERT INTO `produit` (`idproduit`, `nom`, `isactive`, `taille`, `nbingbase`, `NbIngOpt`, `prixuht`, `image`, `nboptmax`, `datearchiv`) VALUES (4, '4 fromages', 1, 0, 3, 2, 10.00, 'https://www.google.com', 3, NULL);
+INSERT INTO `produit` (`idproduit`, `nom`, `isactive`, `taille`, `nbingbase`, `NbIngOpt`, `prixuht`, `image`, `nboptmax`, `datearchiv`) VALUES (5, 'Calzone', 1, 0, 3, 2, 10.00, 'https://www.google.com', 3, NULL);
+INSERT INTO `produit` (`idproduit`, `nom`, `isactive`, `taille`, `nbingbase`, `NbIngOpt`, `prixuht`, `image`, `nboptmax`, `datearchiv`) VALUES (6, 'Sicilienne', 1, 0, 3, 2, 10.00, 'https://www.google.com', 3, NULL);
