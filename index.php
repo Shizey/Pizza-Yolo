@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    require_once 'head.html';
+    require_once 'global/head.html';
 ?>
-<body>    
-    <h1>Hello, World</h1>
+<body>
+    <?php require_once 'global/header.html';  ?> 
+    <h1></h1>
 </body>
 </html>
