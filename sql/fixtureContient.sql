@@ -1,8 +1,24 @@
-INSERT INTO `contient` (`num_of`, `quant`, `Id_Commande`) VALUES (7, 1, 1);
-INSERT INTO `contient` (`num_of`, `quant`, `Id_Commande`) VALUES (8, 1, 2);
-INSERT INTO `contient` (`num_of`, `quant`, `Id_Commande`) VALUES (9, 2, 3);
-INSERT INTO `contient` (`num_of`, `quant`, `Id_Commande`) VALUES (10, 1, 4);
-INSERT INTO `contient` (`num_of`, `quant`, `Id_Commande`) VALUES (11, 1, 5);
-INSERT INTO `contient` (`num_of`, `quant`, `Id_Commande`) VALUES (12, 2, 6);
-INSERT INTO `contient` (`num_of`, `quant`, `Id_Commande`) VALUES (13, 1, 7);
-INSERT INTO `contient` (`num_of`, `quant`, `Id_Commande`) VALUES (14, 1, 8);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+INSERT INTO `contient` (`num_of`, `quant`, `Id_Commande`) VALUES
+	(1, 2, 1),
+	(2, 1, 2),
+	(3, 2, 3),
+	(4, 1, 4),
+	(5, 1, 5),
+	(6, 2, 6),
+	(7, 1, 7),
+	(8, 1, 8);
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

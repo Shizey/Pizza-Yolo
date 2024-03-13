@@ -1,8 +1,24 @@
-INSERT INTO `livre` (`Id_Commande`, `etatLivraison`, `coutLivraison`, `DateArchiv`, `Id_Livreur`) VALUES (1, 'En attente', 5.00, NULL, 1);
-INSERT INTO `livre` (`Id_Commande`, `etatLivraison`, `coutLivraison`, `DateArchiv`, `Id_Livreur`) VALUES (2, 'En attente', 5.00, NULL, 2);
-INSERT INTO `livre` (`Id_Commande`, `etatLivraison`, `coutLivraison`, `DateArchiv`, `Id_Livreur`) VALUES (3, 'En attente', 5.00, NULL, 1);
-INSERT INTO `livre` (`Id_Commande`, `etatLivraison`, `coutLivraison`, `DateArchiv`, `Id_Livreur`) VALUES (4, 'En attente', 5.00, NULL, 2);
-INSERT INTO `livre` (`Id_Commande`, `etatLivraison`, `coutLivraison`, `DateArchiv`, `Id_Livreur`) VALUES (5, 'En attente', 5.00, NULL, 1);
-INSERT INTO `livre` (`Id_Commande`, `etatLivraison`, `coutLivraison`, `DateArchiv`, `Id_Livreur`) VALUES (6, 'En attente', 5.00, NULL, 2);
-INSERT INTO `livre` (`Id_Commande`, `etatLivraison`, `coutLivraison`, `DateArchiv`, `Id_Livreur`) VALUES (7, 'En attente', 5.00, NULL, 1);
-INSERT INTO `livre` (`Id_Commande`, `etatLivraison`, `coutLivraison`, `DateArchiv`, `Id_Livreur`) VALUES (8, 'En attente', 5.00, NULL, 2);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+INSERT INTO `livre` (`Id_Commande`, `etatLivraison`, `coutLivraison`, `DateArchiv`, `Id_Livreur`) VALUES
+	(1, 'En attente', 5.00, NULL, 1),
+	(2, 'En attente', 5.00, NULL, 2),
+	(3, 'En attente', 5.00, NULL, 1),
+	(4, 'En attente', 5.00, NULL, 2),
+	(5, 'En attente', 5.00, NULL, 1),
+	(6, 'En attente', 5.00, NULL, 2),
+	(7, 'En attente', 5.00, NULL, 1),
+	(8, 'En attente', 5.00, NULL, 2);
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

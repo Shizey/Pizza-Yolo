@@ -1,3 +1,12 @@
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 CREATE DATABASE IF NOT EXISTS `PizzaYolo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `PizzaYolo`;
 
@@ -11,9 +20,67 @@ CREATE TABLE IF NOT EXISTS `command` (
   `datecommande` datetime NOT NULL,
   `etatcmd` varchar(50) NOT NULL,
   `typeembal` varchar(50) NOT NULL,
-  `datearchiv` date NOT NULL,
+  `datearchiv` date DEFAULT NULL,
   PRIMARY KEY (`Id_Commande`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `employe` (
+  `idEmploye` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) NOT NULL,
+  `prenom` varchar(50) NOT NULL,
+  `tel` varchar(50) NOT NULL,
+  `password` text NOT NULL,
+  `role` varchar(50) NOT NULL,
+  PRIMARY KEY (`idEmploye`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `fournisseur` (
+  `nomfourn` varchar(50) NOT NULL,
+  `adresse` varchar(50) NOT NULL,
+  `codepostal` int(11) NOT NULL,
+  `ville` varchar(50) NOT NULL,
+  `tel` int(11) NOT NULL,
+  `datearchive` date DEFAULT NULL,
+  PRIMARY KEY (`nomfourn`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `livreur` (
+  `id_livreur` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) NOT NULL,
+  `prenom` varchar(50) NOT NULL,
+  `Telephone` varchar(50) NOT NULL,
+  `disponible` tinyint(1) NOT NULL,
+  `password` text NOT NULL,
+  PRIMARY KEY (`id_livreur`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `produit` (
+  `idproduit` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `isactive` tinyint(1) NOT NULL,
+  `taille` tinyint(1) DEFAULT NULL,
+  `nbingbase` int(11) DEFAULT NULL,
+  `NbIngOpt` int(11) DEFAULT NULL,
+  `prixuht` decimal(15,2) NOT NULL,
+  `image` text DEFAULT NULL,
+  `nboptmax` int(11) DEFAULT NULL,
+  `datearchiv` date DEFAULT NULL,
+  PRIMARY KEY (`idproduit`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `ingredient` (
+  `idingredient` int(11) NOT NULL AUTO_INCREMENT,
+  `nomingre` varchar(50) NOT NULL,
+  `frais` tinyint(1) NOT NULL,
+  `unite` varchar(50) NOT NULL DEFAULT '',
+  `stockmin` int(11) NOT NULL,
+  `stockunite` int(11) NOT NULL DEFAULT 0,
+  `prixuht_moyen` decimal(15,2) NOT NULL,
+  `q_a_com` int(11) NOT NULL DEFAULT 0,
+  `datearchiv` date DEFAULT NULL,
+  PRIMARY KEY (`idingredient`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `comporte` (
   `idingredient` int(11) NOT NULL,
@@ -30,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `contient` (
   `num_of` int(11) NOT NULL,
   `quant` int(11) NOT NULL,
   `Id_Commande` int(11) NOT NULL,
-  PRIMARY KEY (`num_of`),
+  PRIMARY KEY (`num_of`,`Id_Commande`) USING BTREE,
   KEY `Id_Commande` (`Id_Commande`),
   CONSTRAINT `contient_ibfk_1` FOREIGN KEY (`num_of`) REFERENCES `detail` (`num_of`),
   CONSTRAINT `contient_ibfk_2` FOREIGN KEY (`Id_Commande`) REFERENCES `command` (`Id_Commande`)
@@ -68,40 +135,8 @@ CREATE TABLE IF NOT EXISTS `detail` (
   CONSTRAINT `FK_detail_ingredient_7` FOREIGN KEY (`ingbase4`) REFERENCES `ingredient` (`idingredient`),
   CONSTRAINT `IngBase1` FOREIGN KEY (`ingbase1`) REFERENCES `ingredient` (`idingredient`),
   CONSTRAINT `detail_ibfk_1` FOREIGN KEY (`idproduit`) REFERENCES `produit` (`idproduit`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `employe` (
-  `idres` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) NOT NULL,
-  `prenom` varchar(50) NOT NULL,
-  `tel` varchar(50) NOT NULL,
-  `password` text NOT NULL,
-  `role` varchar(50) NOT NULL,
-  PRIMARY KEY (`idres`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-CREATE TABLE IF NOT EXISTS `fournisseur` (
-  `nomfourn` varchar(50) NOT NULL,
-  `adresse` varchar(50) NOT NULL,
-  `codepostal` int(11) NOT NULL,
-  `ville` varchar(50) NOT NULL,
-  `tel` int(11) NOT NULL,
-  `datearchive` date DEFAULT NULL,
-  PRIMARY KEY (`nomfourn`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-CREATE TABLE IF NOT EXISTS `ingredient` (
-  `idingredient` int(11) NOT NULL AUTO_INCREMENT,
-  `nomingre` varchar(50) NOT NULL,
-  `frais` tinyint(1) NOT NULL,
-  `unite` int(11) NOT NULL,
-  `stockmin` int(11) NOT NULL,
-  `stockunite` int(11) NOT NULL,
-  `prixuht_moyen` decimal(15,2) NOT NULL,
-  `q_a_com` int(11) NOT NULL DEFAULT 0,
-  `datearchiv` date DEFAULT NULL,
-  PRIMARY KEY (`idingredient`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `livre` (
   `Id_Commande` int(11) NOT NULL,
@@ -112,32 +147,8 @@ CREATE TABLE IF NOT EXISTS `livre` (
   PRIMARY KEY (`Id_Commande`),
   KEY `Id_Livreur` (`Id_Livreur`),
   CONSTRAINT `livre_ibfk_1` FOREIGN KEY (`Id_Commande`) REFERENCES `command` (`Id_Commande`),
-  CONSTRAINT `livre_ibfk_2` FOREIGN KEY (`Id_Livreur`) REFERENCES `livreur` (`Id_Livreur`)
+  CONSTRAINT `livre_ibfk_2` FOREIGN KEY (`Id_Livreur`) REFERENCES `livreur` (`id_livreur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-CREATE TABLE IF NOT EXISTS `livreur` (
-  `Id_Livreur` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) NOT NULL,
-  `prenom` varchar(50) NOT NULL,
-  `Telephone` varchar(50) NOT NULL,
-  `disponible` tinyint(1) NOT NULL,
-  `password` text NOT NULL,
-  PRIMARY KEY (`Id_Livreur`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-CREATE TABLE IF NOT EXISTS `produit` (
-  `idproduit` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) NOT NULL,
-  `isactive` tinyint(1) NOT NULL,
-  `taille` tinyint(1) DEFAULT NULL,
-  `nbingbase` int(11) DEFAULT NULL,
-  `NbIngOpt` int(11) DEFAULT NULL,
-  `prixuht` decimal(15,2) NOT NULL,
-  `image` text DEFAULT NULL,
-  `nboptmax` int(11) DEFAULT NULL,
-  `datearchiv` date DEFAULT NULL,
-  PRIMARY KEY (`idproduit`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `provient` (
   `idingredient` int(11) NOT NULL,
@@ -148,3 +159,9 @@ CREATE TABLE IF NOT EXISTS `provient` (
   CONSTRAINT `provient_ibfk_1` FOREIGN KEY (`idingredient`) REFERENCES `ingredient` (`idingredient`),
   CONSTRAINT `provient_ibfk_2` FOREIGN KEY (`nomfourn`) REFERENCES `fournisseur` (`nomfourn`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
