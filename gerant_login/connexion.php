@@ -2,11 +2,11 @@
 $nom = $_POST['nom'];
 $mdp = $_POST['mdp'];
 
-$host = "localhost";
-$dbname = "root";
-$username = "root";
-$password = "cacaos";
-$dns = "mysql:host=$host;dbname";
+$host = '192.168.213.58';
+$dbname = 'PizzaYolo';
+$username = 'root';
+$password = 'casaos';
+$dsn = "mysql:host=$host;dbname=$dbname";
 
 try {
     $conn = new PDO($dsn, $username, $password);
@@ -23,7 +23,7 @@ try {
 $conn = null;
 
 if ($result['password'] == hash('sha256', 'admin') and $result['nom'] == $nom) {
-    header("Location: http://localhost/pizza/dashboard.php");
+    header("Location: http://localhost/gerant_login/dashboard.php");
 } else {
     echo "Login ou mot de passe érronée";
 }
