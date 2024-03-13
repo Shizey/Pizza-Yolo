@@ -1,0 +1,225 @@
+@charset "UTF-8";
+
+/*CSS Document*/
+/*--- RESET ---*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+/*--- FIN RESET ---*/
+
+body {
+    background-color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+    
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100vw;
+    word-spacing: 2mm;
+    padding: 20px;
+    border: solid 3px #FFC02D;
+    background-color: #a82d31;
+    justify-content: space-between;
+
+}
+
+nav a {
+    color: #F5F5F5;
+    margin-left: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#navi{
+    width: 100%;
+    margin-left: 10px;
+}
+
+.button{
+    background-color: #FFC02D;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    font-weight: bold;
+    border-radius: 5%;
+}
+
+.button:hover{
+    background-color: #b98408;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.cart{
+    color: #FFC02D;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.cart span{
+    font-size: 40px;
+}
+
+
+.imageLogo {
+    text-align: left;
+    width: 100px;
+
+
+}
+
+footer{
+    flex-direction: row;
+    align-items: center;
+    max-width: 100vw;
+    padding: 20px;
+    border: solid 3px #FFC02D;
+    background-color: #a82d31;
+    justify-content: space-between;
+}
+
+.buttonF1{
+    color: #FFC02D;
+    margin-left: 20px;;
+    text-decoration: none;
+    float: left;
+}
+
+.buttonF2{
+    color: #FFC02D;
+    margin-right: 20px;
+    text-align: center;
+    text-decoration: none;
+    float: right;
+}
+
+.buttonC{
+    color: #FFC02D;
+    text-align: center;
+    text-decoration: none;
+}
+
+.buttonC:hover{
+    text-decoration: underline;
+}
+
+.buttonF1:hover{
+    text-decoration: underline;
+    margin-left: 20px;
+}
+
+.buttonF2:hover{
+    text-decoration: underline;
+    margin-left: 20px;
+}

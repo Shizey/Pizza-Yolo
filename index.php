@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <?php
-    require_once './global/head.html';
-    ?>
-    <title>Pizza Yolo !</title>
-</head>
-
+<?php
+    require_once 'global/head.html';
+?>
 <body>
-    <h1>Hello, World</h1>
+    <?php require_once 'global/header.html';  ?> 
+    <h1>oVo uwu :>  </h1>
+
+    <footer>
+    <?php require_once 'global/footer.html'; ?>
+</footer>
+
 </body>
+
+
 
 </html>
