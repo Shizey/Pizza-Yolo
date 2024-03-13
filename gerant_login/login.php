@@ -24,8 +24,8 @@
                 <div>
                     <input type="submit" class="bouton" value="Login" />
                 </div>
+            </form>
         </fieldset>
-        </form>
     </div>
 </body>
 
