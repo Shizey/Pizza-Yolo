@@ -1,14 +1,17 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Login Gérant</title>
-    <link rel="stylesheet" type="text/css" href="style/index.css" />
-</head>
+<?php
+require_once '../global/head.html';
+?>
 
 <body>
+    <?php require_once '../global/header.html';  ?>
     <div class="container">
-        <fieldset style="width:0px;margin:auto;margin-top:350px;">
+        <fieldset style="width:0px;margin:auto;margin-top:300px;margin-bottom:300px;">
             <legend align=center>Login Gérant</legend>
             <form action="./connexion.php" method="post">
 
@@ -18,7 +21,7 @@
                 </div>
                 <div>
                     <label for="password">Mot de passe</label>
-                    <input type="text" class="formulaire" id="mdp" name="mdp" require />
+                    <input type="password" class="formulaire" id="mdp" name="mdp" require />
                 </div>
                 <br>
                 <div>
@@ -27,6 +30,9 @@
             </form>
         </fieldset>
     </div>
+    <footer>
+        <?php require_once '../global/footer.html'; ?>
+    </footer>
 </body>
 
 </html>

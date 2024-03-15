@@ -23,7 +23,9 @@ try {
 $conn = null;
 
 if ($result['password'] == hash('sha256', 'admin') and $result['nom'] == $nom) {
+    session_start();
+    $_SESSION['loggedin'] = true;
     header("Location: http://localhost/gerant_login/dashboard.php");
 } else {
-    echo "Login ou mot de passe érronée";
+    header("Location: http://localhost/gerant_login/");
 }
