@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../class/Livreur.php';
 class LivreurDAO
 {
     private $connexion;

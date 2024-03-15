@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../class/Comporte.php';
 class ComporteDAO
 {
     private $connexion;

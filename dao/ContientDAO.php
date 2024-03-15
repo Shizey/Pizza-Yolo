@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../class/Contient.php';
 class ContientDAO
 {
     private $connexion;
