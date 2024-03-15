@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    header("Location: http://localhost/gerant_login/dashboard.php");
+} else {
+    header("Location: http://localhost/gerant_login/");
+}
 ?>
 
 <!DOCTYPE html>
