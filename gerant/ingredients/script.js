@@ -33,7 +33,7 @@ $(function () {
                                   ingredient.idIngredient
                                 }">+</button>
                                 </li>
-                                <li>Stock minimum: ${ingredient.stockmin}</li>
+                                <li>Stock minimum: ${ingredient.stockMin}</li>
                             </ul>
                     </div>
                 `;
