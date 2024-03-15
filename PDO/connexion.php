@@ -1,6 +1,6 @@
 <?php
 
-$host = '192.168.213.3';
+$host = '192.168.213.58';
 $dbname = 'PizzaYolo';
 $username = 'root';
 $password = 'casaos';

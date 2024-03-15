@@ -4,8 +4,8 @@ $(function () {
     .then((fournisseurs) => {
       fournisseurs.forEach((fournisseur) => {
         const fournisseurElement = `
-            <div class="${fournisseur.nomfourn}" id="fournisseur">
-                <h3>${fournisseur.nomfourn}</h3>
+            <div class="${fournisseur.nomFournisseur}" id="fournisseur">
+                <h3>${fournisseur.nomFournisseur}</h3>
                 <hr>
                 <div class="liste-ingredients"></div>   
             </div>
@@ -17,67 +17,67 @@ $(function () {
         ingredients.forEach((ingredient) => {
           const ingredientElement = `
                     <div class="ingredient">
-                        <h4>${ingredient.nomingre}</h4>
+                        <h4>${ingredient.nomIngredient}</h4>
                             <ul>
                                 <li>Frais: ${
-                                  ingredient.frais === "1" ? "Oui" : "Non"
+                                  ingredient.isFrais === "1" ? "Oui" : "Non"
                                 }</li>
                                 <li>Quantité: 
                                 <button id="decrease-${
-                                  ingredient.idingredient
+                                  ingredient.idIngredient
                                 }">-</button>
                                 <span id="quantity">${
-                                  ingredient.stockunite
+                                  ingredient.stockUnite
                                 }</span>
                                 <button id="increase-${
-                                  ingredient.idingredient
+                                  ingredient.idIngredient
                                 }">+</button>
                                 </li>
                                 <li>Stock minimum: ${ingredient.stockmin}</li>
                             </ul>
                     </div>
                 `;
-          $(`.${fournisseur.nomfourn} .liste-ingredients`).append(
+          $(`.${fournisseur.nomFournisseur} .liste-ingredients`).append(
             ingredientElement
           );
 
-          $(`.${fournisseur.nomfourn}`).on(
+          $(`.${fournisseur.nomFournisseur}`).on(
             "click",
-            "#increase-" + ingredient.idingredient,
+            "#increase-" + ingredient.idIngredient,
             function () {
               const quantity = parseInt(
-                $(`#increase-${ingredient.idingredient}`)
+                $(`#increase-${ingredient.idIngredient}`)
                   .siblings("#quantity")
                   .text()
               );
 
               const newQuantity = quantity + 1 <= 0 ? 0 : quantity + 1;
 
-              $(`#increase-${ingredient.idingredient}`)
+              $(`#increase-${ingredient.idIngredient}`)
                 .siblings("#quantity")
                 .text(newQuantity);
 
-              updateQuantity(ingredient.idingredient, newQuantity);
+              updateQuantity(ingredient.idIngredient, newQuantity);
             }
           );
 
-          $(`.${fournisseur.nomfourn}`).on(
+          $(`.${fournisseur.nomFournisseur}`).on(
             "click",
-            "#decrease-" + ingredient.idingredient,
+            "#decrease-" + ingredient.idIngredient,
             function () {
               const quantity = parseInt(
-                $(`#decrease-${ingredient.idingredient}`)
+                $(`#decrease-${ingredient.idIngredient}`)
                   .siblings("#quantity")
                   .text()
               );
 
               const newQuantity = quantity - 1 <= 0 ? 0 : quantity - 1;
 
-              $(`#decrease-${ingredient.idingredient}`)
+              $(`#decrease-${ingredient.idIngredient}`)
                 .siblings("#quantity")
                 .text(newQuantity);
 
-              updateQuantity(ingredient.idingredient, newQuantity);
+              updateQuantity(ingredient.idIngredient, newQuantity);
             }
           );
         });
