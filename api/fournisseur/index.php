@@ -1,56 +1,50 @@
 <?php
 
-include_once '../../PDO/connexion.php';
+include_once __DIR__ . '/../../PDO/connexion.php';
+require_once __DIR__ . '/../../dao/FournisseurDAO.php';
+require_once __DIR__ . '/../../dao/IngredientDAO.php';
+require_once __DIR__ . '/../../dao/ProvientDAO.php';
 
-$fournisseurs = getFournisseurs($pdo);
-$ingredients = getIngredients($pdo);
-$provients = getProvient($pdo);
+$fournisseursDAO = new FournisseurDAO($pdo);
+$ingredientsDAO = new IngredientDAO($pdo);
+$provientsDAO = new ProvientDAO($pdo);
+
+$fournisseurs = $fournisseursDAO->getAll();
+$ingredients = $ingredientsDAO->getAll();
+$provients = $provientsDAO->getAll();
 
 $data = [];
 
 foreach ($fournisseurs as $fournisseur) {
-    $fournisseur['ingredients'] = [];
+    $data[] = [
+        'idFournisseur' => $fournisseur->getAdresse(),
+        'nomFournisseur' => $fournisseur->getNomFournisseur(),
+        'adresse' => $fournisseur->getAdresse(),
+        'ville' => $fournisseur->getVille(),
+        'codePostal' => $fournisseur->getCodePostal(),
+        'telephone' => $fournisseur->getTel(),
+        'ingredients' => [],
+    ];
+
     foreach ($provients as $provient) {
-        if ($provient['nomfourn'] === $fournisseur['nomfourn']) {
-            $ingredient = $ingredients[array_search($provient['idingredient'], array_column($ingredients, 'idingredient'))];
-
-            $ingredient["prixuht"] = $provient["prixuht"];
-
-            $fournisseur['ingredients'][] = $ingredient;
+        if ($provient->getNomFournisseur() == $fournisseur->getNomFournisseur()) {
+            foreach ($ingredients as $ingredient) {
+                if ($ingredient->getIdIngredient() == $provient->getIdIngredient()) {
+                    $data[count($data) - 1]['ingredients'][] = [
+                        'idIngredient' => $ingredient->getIdIngredient(),
+                        'nomIngredient' => $ingredient->getNomIngredient(),
+                        'stockUnite' => $ingredient->getStockUnite(),
+                        'unite' => $ingredient->getUnite(),
+                        'dateArchive' => $ingredient->getDateArchive(),
+                        'stockMin' => $ingredient->getStockMin(),
+                        'isFrais' => $ingredient->getIsFrais(),
+                        'prixMoyen' => $ingredient->getPrixMoyen(),
+                        'quantiteACommander' => $ingredient->getQuantiteACommander(),
+                    ];
+                }
+            }
         }
     }
-
-    $data[] = $fournisseur;
 }
 
 echo json_encode($data);
-
-
-function getFournisseurs($pdo)
-{
-    $sql = "SELECT * FROM fournisseur";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $fournisseurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $fournisseurs;
-}
-
-function getIngredients($pdo)
-{
-    require '../../PDO/connexion.php';
-    $sql = "SELECT * FROM ingredient";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $ingredients = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $ingredients;
-}
-
-function getProvient($pdo)
-{
-    require '../../PDO/connexion.php';
-    $sql = "SELECT * FROM provient";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $provient = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $provient;
-}

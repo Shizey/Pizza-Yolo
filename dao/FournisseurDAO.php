@@ -3,7 +3,7 @@ require_once __DIR__ . '/../class/Fournisseur.php';
 class FournisseurDAO
 {
     private $connexion;
-    
+
     public function __construct($connexion)
     {
         $this->connexion = $connexion;
