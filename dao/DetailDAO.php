@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../class/Detail.php';
 class DetailDAO
 {
     private $connexion;

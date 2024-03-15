@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../class/Ingredient.php';
 class IngredientDAO
 {
     private $connexion;

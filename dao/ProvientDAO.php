@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../class/Provient.php';
 class ProvientDAO 
 {
     private $connexion;
